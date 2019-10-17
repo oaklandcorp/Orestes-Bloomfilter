@@ -1,9 +1,14 @@
-apply plugin: 'java'
-apply plugin: 'maven'
+plugins {
+    id 'java'
+    id 'maven'
+}
 
 def distFolder = file("dist")
 def docFolder = file("dist/doc")
 def projectName = 'bloom-filter'
+
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
 
 version = "1.07-port-java7"
 group = "com.baqend"
@@ -15,8 +20,9 @@ repositories {
 dependencies {
     compile(
             'com.google.code.gson:gson:2.2.4',
-            'redis.clients:jedis:2.5.1',
-            'org.apache.commons:commons-pool2:2.2'
+            'redis.clients:jedis:2.9.3',
+            'org.apache.commons:commons-pool2:2.2',
+            'javax.xml.bind:jaxb-api:2.3.1'
     )
     testCompile(
             'junit:junit:4.11',
